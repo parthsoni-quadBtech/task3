@@ -1,3 +1,5 @@
+type UserData = record { "principal": text };
 service : {
-    "greet": () -> (text) query;
+  "greet": () -> (text) query;
+  "user_info": () -> (UserData);
 }

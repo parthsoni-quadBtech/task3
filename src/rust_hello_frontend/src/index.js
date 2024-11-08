@@ -25,6 +25,23 @@ greetButton.onclick = async (e) => {
     return false;
 };
 
+const userInfoButton = document.getElementById("userInfo");
+
+userInfoButton.onclick = async (e) => {
+  e.preventDefault();
+  userInfoButton.setAttribute("disabled", true);
+
+  // Interact with backend actor, calling the greet method
+  const userInfo = await actor.user_info();
+  userInfoButton.removeAttribute("disabled");
+
+  document.getElementById(
+    "greeting"
+  ).innerText = `Current User Principal: ${userInfo.principal}`;
+
+  return false;
+};
+
 const loginButton = document.getElementById("login");
 loginButton.onclick = async (e) => {
     e.preventDefault();
